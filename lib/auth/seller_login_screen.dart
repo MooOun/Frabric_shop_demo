@@ -1,3 +1,4 @@
+import 'package:fabricshopdemo/auth/customer_login_screen.dart';
 import 'package:fabricshopdemo/auth/seller_register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -8,6 +9,7 @@ import 'package:fabricshopdemo/auth/welcome_screen.dart';
 
 import 'package:fabricshopdemo/main_screens/supplier_home.dart';
 import 'package:fabricshopdemo/utils/snackbar.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SellerLoginScreen extends StatefulWidget {
   static const String routeName = 'SellerLoginScreen';
@@ -215,7 +217,7 @@ class _SellerLoginScreenState extends State<SellerLoginScreen> {
                     TextButton(
                       onPressed: () {
                         Navigator.pushReplacementNamed(
-                            context, WelcomeScreen.routeName);
+                            context, CustomerLoginScreen.routeName);
                       },
                       child: Text(
                         'เข้าสู่ระบบ',
@@ -223,8 +225,32 @@ class _SellerLoginScreenState extends State<SellerLoginScreen> {
                           color: Colors.purple.shade600,
                         ),
                       ),
-                    )
+                    ),
                   ],
+                ),  SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.white,
+                    onPrimary: Colors.black,
+                    minimumSize: Size(double.infinity,50),
+                    elevation: 0
+                  ),
+                  icon: FaIcon(FontAwesomeIcons.google , color: Colors.red,),
+                  onPressed: () {},
+                  label: Text('Login With Google'),
+                ),
+                ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.white,
+                    onPrimary: Colors.black,
+                    minimumSize: Size(double.infinity,50),
+                    elevation: 0
+                  ),
+                  icon: FaIcon(FontAwesomeIcons.facebook , color: Colors.blue,),
+                  onPressed: () {},
+                  label: Text('Login With Facebook'),
                 ),
               ],
             ),

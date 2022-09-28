@@ -7,6 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:fabricshopdemo/auth/welcome_screen.dart';
 import 'package:fabricshopdemo/main_screens/custormer_home_screen.dart';
@@ -233,7 +234,32 @@ class _CustomerLoginScreenState extends State<CustomerLoginScreen> {
                       ),
                     )
                   ],
-                )
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.white,
+                    onPrimary: Colors.black,
+                    minimumSize: Size(double.infinity,50),
+                    elevation: 0
+                  ),
+                  icon: FaIcon(FontAwesomeIcons.google , color: Colors.red,),
+                  onPressed: () {},
+                  label: Text('Login With Google'),
+                ),
+                ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.white,
+                    onPrimary: Colors.black,
+                    minimumSize: Size(double.infinity,50),
+                    elevation: 0
+                  ),
+                  icon: FaIcon(FontAwesomeIcons.facebook , color: Colors.blue,),
+                  onPressed: () {},
+                  label: Text('Login With Facebook'),
+                ),
               ],
             ),
           ),
