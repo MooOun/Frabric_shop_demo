@@ -74,7 +74,7 @@ class SubCategoryProducts extends StatelessWidget {
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 itemCount: snapshot.data!.docs.length,
-                crossAxisCount: 2,
+                crossAxisCount: 1,
                 itemBuilder: (context, index) {
                   return ProductModel(
                     products: snapshot.data!.docs[index],

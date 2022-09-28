@@ -15,6 +15,7 @@ import 'package:fabricshopdemo/provider/wishlist_provider.dart';
 import 'package:fabricshopdemo/utils/snackbar.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
+import 'package:url_launcher/link.dart';
 
 import '../provider/cart_provider.dart';
 
@@ -29,7 +30,6 @@ class ProductsDetails extends StatefulWidget {
 class _ProductsDetailsState extends State<ProductsDetails> {
   late List<dynamic> imageList = widget.productList['productimage'];
 
-
   @override
   Widget build(BuildContext context) {
     final Stream<QuerySnapshot> _reviewsStream = FirebaseFirestore.instance
@@ -43,6 +43,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
         .where('maincategory', isEqualTo: widget.productList['maincategory'])
         .where('subcategory', isEqualTo: widget.productList['subcategory'])
         .snapshots();
+
     return Material(
       child: SafeArea(
         child: Scaffold(
@@ -89,29 +90,30 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Row( 
+                            Row(
                               children: [
                                 Text(
-                              'ราคา : \t',
-                              style: TextStyle(
-                                color: Colors.purple.shade600,
-                                fontSize: 20,
-                              ),
-                            ),
+                                  'ราคา : \t',
+                                  style: TextStyle(
+                                    color: Colors.purple.shade600,
+                                    fontSize: 20,
+                                  ),
+                                ),
                                 Text(
-                                  widget.productList['price'].toStringAsFixed(2),
+                                  widget.productList['price']
+                                      .toStringAsFixed(2),
                                   style: TextStyle(
                                     color: Colors.purple.shade500,
                                     fontSize: 20,
                                   ),
                                 ),
                                 Text(
-                              '\t\tบาท ',
-                              style: TextStyle(
-                                color: Colors.purple.shade600,
-                                fontSize: 20,
-                              ),
-                            ),
+                                  '\t\tบาท ',
+                                  style: TextStyle(
+                                    color: Colors.purple.shade600,
+                                    fontSize: 20,
+                                  ),
+                                ),
                               ],
                             ),
                             widget.productList['sellerUid'] ==
@@ -167,6 +169,25 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                           ],
                         ),
                       ),
+                      Row(mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Padding(
+                                      padding: const EdgeInsets.only(left: 10),
+                                      child: Link(
+                                      target: LinkTarget.blank,
+                                      uri: Uri.parse('https://t.snapchat.com/AoDLk0SE'),
+                                      builder: (context, followlink) => ElevatedButton(
+                                        onPressed: followlink,
+                                        style: ElevatedButton.styleFrom(primary: Colors.purple ),
+                                        child: Text('ลองผ่าน AR'),
+                                      ),
+                                  ),
+                                    ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
                       Text(
                         '${widget.productList['instock'].toString()} ชิ้นนี้อยู่ในรายการถูกใจของคุณเเล้ว',
                         style: TextStyle(
@@ -194,31 +215,6 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                         ),
                       ),
                       review(_reviewsStream),
-
-                    Row(mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                                decoration: BoxDecoration(
-                                    color: Colors.purple.shade600,
-                                    borderRadius: BorderRadius.only(
-                                      bottomRight: Radius.circular(15),
-                                      bottomLeft: Radius.circular(15),
-                                        topLeft: Radius.circular(15),
-                                        topRight: Radius.circular(
-                                          15,
-                                        ))),
-                                child: IconButton(
-                                  onPressed: (){ImageSource.camera;},
-                                  icon: Icon(
-                                    Icons.camera_alt,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                              Text('\t\tลองสินค้าผ่าน Augmented Reality', style: TextStyle(fontSize: 10),)
-                      ],
-                    ),
-
                       ProductDetailsHeaderLabel(
                         headerLabel: 'สินค้าอื่นๆ',
                       ),

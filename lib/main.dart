@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         fontFamily: "Kanit-Bold",
         primarySwatch: Colors.blue,
       ),
-      initialRoute: WelcomeScreen.routeName,
+      initialRoute: CustomerLoginScreen.routeName,
       routes: {
         WelcomeScreen.routeName: (context) => WelcomeScreen(),
         CustomHomeScreen.routeName: (context) => CustomHomeScreen(),
