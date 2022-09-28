@@ -5,6 +5,7 @@ import 'package:expandable/expandable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:fabricshopdemo/main_screens/cart_screen.dart';
 import 'package:fabricshopdemo/minor_screens/full_image_screen.dart';
@@ -27,6 +28,7 @@ class ProductsDetails extends StatefulWidget {
 
 class _ProductsDetailsState extends State<ProductsDetails> {
   late List<dynamic> imageList = widget.productList['productimage'];
+
 
   @override
   Widget build(BuildContext context) {
@@ -192,6 +194,31 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                         ),
                       ),
                       review(_reviewsStream),
+
+                    Row(mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                                decoration: BoxDecoration(
+                                    color: Colors.purple.shade600,
+                                    borderRadius: BorderRadius.only(
+                                      bottomRight: Radius.circular(15),
+                                      bottomLeft: Radius.circular(15),
+                                        topLeft: Radius.circular(15),
+                                        topRight: Radius.circular(
+                                          15,
+                                        ))),
+                                child: IconButton(
+                                  onPressed: (){ImageSource.camera;},
+                                  icon: Icon(
+                                    Icons.camera_alt,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                              Text('\t\tลองสินค้าผ่าน Augmented Reality', style: TextStyle(fontSize: 10),)
+                      ],
+                    ),
+
                       ProductDetailsHeaderLabel(
                         headerLabel: 'สินค้าอื่นๆ',
                       ),
