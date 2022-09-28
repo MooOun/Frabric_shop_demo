@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "764659795310",
+    "project_id": "fabricshopdemo",
+    "storage_bucket": "fabricshopdemo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:764659795310:android:166e0e4dc3582fb8a62d7f",
+        "android_client_info": {
+          "package_name": "com.flutterthailand.fabricshopdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "764659795310-bugur4nfqoqfpdk68cffrp1b84cvnie2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgueeiA1z0DS4AgmK-CQyjagOqyPPORxA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "764659795310-bugur4nfqoqfpdk68cffrp1b84cvnie2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
