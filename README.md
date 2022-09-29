@@ -1,6 +1,6 @@
 # fabricshopdemo
 
-A new Flutter project.
+Demo Project Flutter Ecommerce To connext Firebase & Connect AR with Snapchat Filter
 
 ## Getting Started
 
