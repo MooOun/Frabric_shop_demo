@@ -214,29 +214,27 @@ class CartScreen extends StatelessWidget {
           Text('บาท' , style: TextStyle(fontSize: 18),),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 20),
-            child: Expanded(
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    primary: Colors.black,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    minimumSize:
-                        Size(MediaQuery.of(context).size.width * 0.2, 35)),
-                onPressed: Provider.of<Cart>(context, listen: true) == 0.0
-                    ? null
-                    : () {
-                        Navigator.of(context)
-                            .push(MaterialPageRoute(builder: (context) {
-                          return PlaceOrder();
-                        }));
-                      },
-                child: Text(
-                  'ชำระเงิน ',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 17,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  primary: Colors.black,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25),
                   ),
+                  minimumSize:
+                      Size(MediaQuery.of(context).size.width * 0.2, 35)),
+              onPressed: Provider.of<Cart>(context, listen: true) == 0.0
+                  ? null
+                  : () {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
+                        return PlaceOrder();
+                      }));
+                    },
+              child: Text(
+                'ชำระเงิน ',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17,
                 ),
               ),
             ),
